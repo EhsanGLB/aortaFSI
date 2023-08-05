@@ -1,0 +1,31 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+#------------------------------- hemodynamic4Foam project -------------------------------#
+#Author
+    #Ehsan Golab, SUT. All rights reserved.
+    #Ehsan1996Golab@gmail.com
+
+#--------------------------------------------------------------------------------------#
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+
+echo generating mesh ...
+cd aortaFSIFE41
+./Allrun
+cp -r fluid/constant/polyMesh ../aortaFSISolids4Foam/constant/fluid
+cp -r solid/constant/polyMesh ../aortaFSISolids4Foam/constant/solid
+cd ../aortaFSISolids4Foam
+
+echo run solver ...
+./Allrun
+
+# -------------------------------------------------------------------------- end-of-file
+
+
+
+
+
+

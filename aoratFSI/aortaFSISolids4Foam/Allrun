@@ -1,0 +1,26 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+#------------------------------- hemodynamic4Foam project -------------------------------#
+#Author
+    #Ehsan Golab, SUT. All rights reserved.
+    #Ehsan1996Golab@gmail.com
+
+#--------------------------------------------------------------------------------------#
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Source solids4Foam scripts
+source solids4FoamScripts.sh
+
+# Check case version is correct
+solids4Foam::convertCaseFormat .
+
+solids4Foam::caseOnlyRunsWithFoamExtend
+
+# Run solver
+runApplication solids4Foam
+
+# ----------------------------------------------------------------- end-of-file
+

@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                |
+| \\      /  F ield         | cfMesh: A library for mesh generation          | 
+|  \\    /   O peration     |                                                |
+|   \\  /    A nd           | Author: Franjo Juretic                         | 
+|    \\/     M anipulation  | E-mail: franjo.juretic@c-fields.com            |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version   2.0;
+    format    ascii;
+    class     dictionary;
+    location  "system";
+    object    meshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+surfaceFile "aorta.fms";
+
+maxCellSize 5.0;
+
+boundaryCellSize 3.0;
+
+minCellSize 2.0;
+
+
+
+localRefinement
+{
+    ".*"
+    {
+        cellSize 3.0;
+    } 
+}
+
+boundaryLayers
+{
+    nLayers 4;
+
+    thicknessRatio 1.1;
+
+    maxFirstLayerThickness 0.5;
+
+//    patchBoundaryLayers
+//    {
+//    }
+}
+          
+     
+// ************************************************************************* //

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Source tutorial clean functions
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+cases="fluid solid"
+
+for case in $cases
+do
+    cd $case
+    cleanCase $case
+    rm -f aort.fms
+    rm -f consoleFluid.sMesh
+    rm -f constant/polyMesh/meshMetaDict
+    rm -f constant/polyMesh/boundary
+    cd ..
+done
+

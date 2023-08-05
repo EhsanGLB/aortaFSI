@@ -1,0 +1,94 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      createPatchDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+pointSync false;
+writeCyclicMatch  false;
+
+// Patches to create.
+patchInfo
+(
+    {
+        name consoleFluid;
+        dictionary
+        {
+            type	wall;
+        }
+        constructFrom patches;
+	patches (auto0);
+    }
+
+    {
+        name inletFluid;
+        dictionary
+        {
+            type	patch;
+        }
+        constructFrom patches;
+	patches (auto8);
+    }
+
+    {
+        name outlet1Fluid;
+        dictionary
+        {
+            type	patch;
+        }
+        constructFrom patches;
+	patches (auto9);
+    }
+
+    {
+        name outlet2Fluid;
+        dictionary
+        {
+            type	patch;
+        }
+        constructFrom patches;
+	patches (auto4);
+    }
+
+    {
+        name outlet3Fluid;
+        dictionary
+        {
+            type	patch;
+        }
+        constructFrom patches;
+	patches (auto5);
+    }
+
+    {
+        name outlet4Fluid;
+        dictionary
+        {
+            type	patch;
+        }
+        constructFrom patches;
+	patches (auto6);
+    }
+
+    {
+        name outlet5Fluid;
+        dictionary
+        {
+            type	patch;
+        }
+        constructFrom patches;
+	patches (auto7);
+    }
+);
+
+// ************************************************************************* //
